@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sovannlyna-nextjsv-deployment
+  labels:
+    app: sovannlyna-nextjsv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sovannlyna-nextjsv
+  template:
+    metadata:
+      labels:
+        app: sovannlyna-nextjsv
+    spec:
+      containers:
+        - name: sovannlyna-nextjsv-container
+          image: pipejet/sovannlyna-nextjsv:0
+          ports:
+            - containerPort: 3000
