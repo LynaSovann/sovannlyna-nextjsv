@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: sovannlyna-nextjsv-container
-          image: pipejet/sovannlyna-nextjsv:0
+          image: pipejet/sovannlyna-nextjsv:1
           ports:
             - containerPort: 3000
