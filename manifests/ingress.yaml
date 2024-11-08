@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sovannlyna-nextjsv-https-ingress
+  namespace: sovannlyna-nextjsv
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - sovannlyna-nextjsv.assessify.org
+      secretName: sovannlyna-nextjsv-secret-tls
+  rules:
+    - host: sovannlyna-nextjsv.assessify.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sovannlyna-nextjsv-service
+                port:
+                  number: 8122
