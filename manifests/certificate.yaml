@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: sovannlyna-nextjsv-certificate
+  namespace: sovannlyna-nextjsv
+spec:
+  secretName: sovannlyna-nextjsv-secret-tls
+  commonName: sovannlyna-nextjsv.assessify.org
+  dnsNames:
+  - sovannlyna-nextjsv.assessify.org
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
