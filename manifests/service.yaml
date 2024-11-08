@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sovannlyna-nextjsv-service
+spec:
+  type: NodePort
+  selector:
+    app: sovannlyna-nextjsv
+  ports:
+    - protocol: TCP
+      port: 8122
+      targetPort: 3000
